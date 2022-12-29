@@ -57,17 +57,15 @@ public class Menus {
         System.out.println("-------------------------");
         
         switch(opcao){
-            case 1: renda();
-                    break;
-                    
-            case 2: despesa();
-                    break;
+            case 1 -> renda();
+            case 2 -> despesa();
+            case 3 -> extrato();
         }
     }
     
     public void renda(){
         do{
-            System.out.println("Digite o valor que deseja adicionar: ");
+            System.out.print("Digite o valor que deseja adicionar: ");
             this.valor = tec.nextFloat();
             rendas = rendas + this.valor;
             saldo = rendas - despesas;
@@ -82,7 +80,7 @@ public class Menus {
     
     public void despesa(){
         do{
-            System.out.println("Digite o valor da despesa:");
+            System.out.print("Digite o valor da despesa:");
             this.valor = tec.nextFloat();
             despesas = despesas + this.valor;
             saldo = rendas - despesas;
@@ -90,6 +88,14 @@ public class Menus {
             System.out.println("(1) Adicionar despesa");
             System.out.println("(2) Retornar ao menu");
             continuar = tec.nextInt();
+            System.out.println("-------------------------");
         } while(continuar==1);
+        menu();
+    }
+    
+    public void extrato(){
+        System.out.println("Saldo atual: " + saldo);
+        System.out.println("-------------------------");
+        menu();
     }
 }
